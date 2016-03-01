@@ -1,1 +1,4 @@
 bericht
+dist/
+node_modules/
+

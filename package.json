@@ -1,0 +1,20 @@
+{
+	"name": "6ecken",
+	"author": "Philipp Hagemeister <phihag@phihag.de>",
+	"description": "Badminton Training App",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/phihag/6ecken.git"
+	},
+	"scripts": {
+		"test": "mocha test/",
+		"test:watch": "npm run test -- -w"
+	},
+	"dependencies": {
+	},
+	"devDependencies": {
+		"mocha": "*",
+		"parse-appcache-manifest": "*"
+	},
+	"private": true
+}

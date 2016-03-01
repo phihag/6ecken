@@ -1,0 +1,20 @@
+.court_container {
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%;
+}
+
+.court_background {
+	position: relative;
+
+	width: 91vh;
+	height: 100vh;
+	max-width: 100vw;
+	max-height: 109vw;
+	margin: 0 auto;
+
+	background-color: #c2d3c2;
+	background-image: url(../icons/halfcourt.svg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
