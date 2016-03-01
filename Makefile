@@ -16,7 +16,7 @@ cleandist:
 manifest: appcache-manifest
 
 appcache-manifest:
-	node div/make_manifest.js dist/6ecken/
+	node div/make_manifest.js dist/6ecken/ div/6ecken.appcache.in dist/6ecken/6ecken.appcache
 
 dist: cleandist ## Create distribution files
 	mkdir -p dist/6ecken
@@ -25,11 +25,6 @@ dist: cleandist ## Create distribution files
 
 	svgo -f icons/ -o dist/6ecken/icons/
 	cp div/dist_htaccess dist/6ecken/.htaccess
-	mkdir -p dist/6ecken/sounds/
-	# TODO copy sounds
-	cp \
-		sounds/*.mp3
-		--target-directory dist/6ecken/div/
 
 	$(MAKE) appcache-manifest
 

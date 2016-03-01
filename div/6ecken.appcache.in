@@ -1,0 +1,13 @@
+CACHE MANIFEST
+
+# @checksum
+
+CACHE:
+index.html
+6ecken.dist.css
+6ecken.dist.js
+
+@svgfiles
+
+NETWORK:
+*

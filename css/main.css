@@ -1,4 +1,16 @@
 html, body {
 	margin: 0; padding: 0;
 	background: #ddd;
+	font-size: 4vmin;
+}
+
+.version {
+	position: absolute;
+	font-size: 2vmin;
+	right: 0.5em;
+	bottom: 0.2em;
+	color: #ccc;
+}
+.version:hover {
+	color: #000;
 }

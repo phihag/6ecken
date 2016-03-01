@@ -25,8 +25,22 @@ function on_click_qs(selector, callback) {
 	on_click(qs(selector), callback);
 }
 
+function create_el(parent, tagName, attrs, text) {
+	var el = document.createElement(tagName);
+	if (attrs) {
+		for (var k in attrs) {
+			el.setAttribute(k, attrs[k]);
+		}
+	}
+	if (text) {
+		el.appendChild(document.createTextNode(text));
+	}
+	parent.appendChild(el);
+	return el;
+}
 
 return {
+	create_el: create_el,
 	on_click: on_click,
 	on_click_qs: on_click_qs,
 	qs: qs,
