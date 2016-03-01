@@ -1,6 +1,7 @@
-mark 6 corners in one order / random
+mark 6 corners in one order
 beep sound to indicate change
 
+random order
 pause after 12 / 18 corners
 set up as appcache
 set up and test as Android webapp

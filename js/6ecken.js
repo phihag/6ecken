@@ -7,7 +7,7 @@ function ui_init() {
 	var body = utils.qs('body');
 
 	utils.on_click_qs('#button_start', function() {
-		console.log('start');
+		console.log('TODO start');
 	});
 
 	utils.create_el(body, 'div', {

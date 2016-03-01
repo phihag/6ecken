@@ -11,7 +11,7 @@ function qs(selector) {
 
 	var node = document.querySelector(selector);
 	if (! node) {
-		report_problem.silent_error('Expected to find qs  ' + selector + ' , but no node matching.');
+		console.error('Expected to find qs  ' + selector + ' , but no node matching.'); // eslint-disable-line no-console
 		return;
 	}
 	return node;
