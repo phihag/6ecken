@@ -2,6 +2,7 @@ html, body {
 	margin: 0; padding: 0;
 	background: #ddd;
 	font-size: 4vmin;
+	font-family: 'Droid sans', Arial, sans-serif;
 }
 
 .version {

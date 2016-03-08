@@ -32,15 +32,22 @@ function create_el(parent, tagName, attrs, text) {
 			el.setAttribute(k, attrs[k]);
 		}
 	}
-	if (text) {
+	if ((text !== undefined) && (text !== null)) {
 		el.appendChild(document.createTextNode(text));
 	}
 	parent.appendChild(el);
 	return el;
 }
 
+function obj_update(obj, other) {
+	for (var key in other) {
+		obj[key] = other[key];
+	}
+}
+
 return {
 	create_el: create_el,
+	obj_update: obj_update,
 	on_click: on_click,
 	on_click_qs: on_click_qs,
 	qs: qs,

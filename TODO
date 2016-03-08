@@ -1,8 +1,20 @@
+style numbers
+script to download
+
 mark 6 corners in one order
 beep sound to indicate change
-
 random order
 pause after 12 / 18 corners
+TTS 1,2,3,4,5,6,7,8
+	-> speed up
+	-> cut silence
+	-> script with sox? script to download?
+test mode: Evaluate speed
+
+
+-> run @Niesner
+
+set up travis
 set up as appcache
 set up and test as Android webapp
 set up and test as iOS webapp
@@ -13,17 +25,20 @@ varying speed settings
 	-> test Umsprung, Step, China-Sprung
 	-> test with different players
 pause button
-TTS 1,2,3,4,5,6,7,8 (prerecord as audio files?)
+add option to smash/LvK etc.
 blind mode (only number shown)
 	either fixed or anew every 10
 	show while in step
 8 corner mode
+configure corners
 show session number
 allow stopping after session number? Test whether a different sound is good
+
+
+
 
 i18n (copy over from bup)
 record video?
 integrate pulse measurement?
 integrate racket trackers?
-
-set up report to specs required
+remote control?
