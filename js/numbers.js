@@ -2,9 +2,9 @@ var numbers = (function() {
 'use strict';
 
 var NUMBER_POSITIONS = [
-	'position: absolute; top: 0; left: 2%;',
-	'position: absolute; top: 0; left: 50%; transform: translate(-50%, 0);',
-	'position: absolute; top: 0; right: 2%;',
+	'position: absolute; top: 2%; left: 2%;',
+	'position: absolute; top: 2%; left: 50%; transform: translate(-50%, 0);',
+	'position: absolute; top: 2%; right: 2%;',
 	'position: absolute; top: 50%; left: 2%;',
 	'position: absolute; top: 50%; left: 50%; transform: translate(-50%, 0);',
 	'position: absolute; top: 50%; right: 2%;',

@@ -1,5 +1,5 @@
-style numbers
-script to download
+write voice script
+document & do voice modifications
 
 mark 6 corners in one order
 beep sound to indicate change
@@ -36,7 +36,7 @@ allow stopping after session number? Test whether a different sound is good
 
 
 
-
+add a README
 i18n (copy over from bup)
 record video?
 integrate pulse measurement?
