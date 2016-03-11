@@ -40,6 +40,8 @@ function gen(num, voice, out_base, cb) {
 		child_process.execFile('pico2wave', ['-l', voice, '-w', svox_fn, num], exec_cb(cb));
 	}, function(cb) {
 		child_process.execFile('sox', [svox_fn, wav_fn, 'silence', '1', '0.1', '0.5%', '1', '0.05', '0.5%'], exec_cb(cb));
+	}, function(cb) {
+		child_process.execFile('lame', [wav_fn, mp3_fn], exec_cb(cb));
 	}], cb);
 }
 
