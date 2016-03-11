@@ -5,6 +5,10 @@ html, body {
 	font-family: 'Droid sans', Arial, sans-serif;
 }
 
+button {
+	font-size: 10vmin;
+}
+
 .version {
 	position: absolute;
 	font-size: 2vmin;
@@ -14,4 +18,8 @@ html, body {
 }
 .version:hover {
 	color: #000;
+}
+
+.invisible {
+	display: none;
 }

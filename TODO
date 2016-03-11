@@ -1,6 +1,3 @@
-write voice script
-document & do voice modifications
-
 mark 6 corners in one order
 beep sound to indicate change
 random order
@@ -11,9 +8,11 @@ TTS 1,2,3,4,5,6,7,8
 	-> script with sox? script to download?
 test mode: Evaluate speed
 
-
 -> run @Niesner
 
+pause background
+more precise timing (calc how out of touch timing is)
+document sound modifications (include screenshot)
 set up travis
 set up as appcache
 set up and test as Android webapp
@@ -33,11 +32,13 @@ blind mode (only number shown)
 configure corners
 show session number
 allow stopping after session number? Test whether a different sound is good
+pick a simpler font
 
-
-
+move utils to uiu
+switch to ms for storage
 add a README
 i18n (copy over from bup)
+
 record video?
 integrate pulse measurement?
 integrate racket trackers?

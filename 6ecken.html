@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="css/court.css" />
 	<link rel="stylesheet" href="css/buttons.css" />
 	<link rel="stylesheet" href="css/numbers.css" />
+	<link rel="stylesheet" href="css/pause.css" />
 	<link rel="stylesheet" href="css/main.css" />
 <!--/@DEV-->
 <!--@PRODUCTION
@@ -24,6 +25,13 @@
 <div class="court"></div>
 </div>
 
+<div class="pause invisible">
+	<div class="pause_display">
+		<div class="pause_header">Pause</div>
+		<div class="pause_seconds"></div>
+	</div>
+</div>
+
 <div class="buttons">
 <button id="button_start">Start</button>
 </div>
@@ -32,6 +40,7 @@
 <script src="js/utils.js"></script>
 <script src="js/settings.js"></script>
 <script src="js/numbers.js"></script>
+<script src="js/control.js"></script>
 <script src="js/6ecken.js"></script>
 <!--/@DEV-->
 

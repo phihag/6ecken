@@ -45,12 +45,58 @@ function obj_update(obj, other) {
 	}
 }
 
+function text(node, str) {
+	empty(node);
+	node.appendChild(node.ownerDocument.createTextNode(str));
+}
+
+function text_qs(selector, str) {
+	text(qs(selector), str);
+}
+
+function escapeRegExp(str) {
+	// From http://stackoverflow.com/a/6969486/35070
+	return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&');
+}
+
+function addClass(node, className) {
+	node.className += ' ' + className;
+}
+
+function removeClass(node, className) {
+	// TODO handle long classes, and proper regexp
+	var rex = new RegExp('(?:^|\s+)' + escapeRegExp(className), 'g');
+	node.className = node.className.replace(' ' + className, '');
+}
+
+function visible(node, val) {
+	console.log('visible', node, val);
+	if (val) {
+		removeClass(node, 'invisible');
+	} else {
+		addClass(node, 'invisible');
+	}
+}
+
+function empty(node) {
+	var last;
+	while ((last = node.lastChild)) {
+		node.removeChild(last);
+	}
+}
+
+function visible_qs(selector, val) {
+	visible(qs(selector), val);
+}
+
 return {
 	create_el: create_el,
 	obj_update: obj_update,
 	on_click: on_click,
 	on_click_qs: on_click_qs,
 	qs: qs,
+	text_qs: text_qs,
+	visible_qs: visible_qs,
 };
 })();
 
