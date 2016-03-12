@@ -9,7 +9,7 @@ var state = {
 	corner_count: 10,
 	pause: 10,
 	mode: 'random',
-	test_base: 0.8,
+	test_base: 0.86,
 };
 
 audio.preload();
