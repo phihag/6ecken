@@ -25,6 +25,8 @@ dist: cleandist ## Create distribution files
 
 	svgo -f icons/ -o dist/6ecken/icons/
 	cp div/dist_htaccess dist/6ecken/.htaccess
+	mkdir -p dist/6ecken/sounds/
+	cp sounds/*.mp3 dist/6ecken/sounds/
 
 	$(MAKE) appcache-manifest
 

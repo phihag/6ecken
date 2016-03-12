@@ -50,9 +50,9 @@ function calcTimeout(level, corner) {
 	case 2:
 		res *= state.front_multiplier;
 		break;
+	case 6:
 	case 7:
 	case 8:
-	case 9:
 		res *= state.back_multiplier;
 		break;
 	}
