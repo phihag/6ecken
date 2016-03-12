@@ -63,9 +63,15 @@ function randomInt(n) {
 	return Math.floor(Math.random() * n);
 }
 
+function hasClass(node, className) {
+	// TODO use regexp
+	return (node.className.indexOf(className) >= 0);
+}
+
 function addClass(node, className) {
-	// TODO do not add a class twice
-	node.className += ' ' + className;
+	if (! hasClass(node, className)) {
+		node.className += ' ' + className;
+	}
 }
 
 function removeClass(node, className) {

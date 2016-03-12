@@ -6,10 +6,10 @@ var state = {
 	base_speed: 3, // seconds per corner
 	front_multiplier: 1.4,
 	back_multiplier: 1.6,
-	corner_count: 12,
+	corner_count: 10,
 	pause: 10,
 	mode: 'random',
-	timing: 'test',
+	test_base: 0.8,
 };
 
 audio.preload();
@@ -20,6 +20,9 @@ function ui_init() {
 
 	utils.on_click_qs('#button_start', function() {
 		control.start(state);
+	});
+	utils.on_click_qs('#button_pause', function() {
+		control.toggle_suspended();
 	});
 
 	var body = utils.qs('body');

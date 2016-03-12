@@ -8,9 +8,9 @@ var NUMBER_POSITIONS = [
 	'position: absolute; top: 50%; left: 2%;',
 	'position: absolute; top: 50%; left: 50%; transform: translate(-50%, 0);',
 	'position: absolute; top: 50%; right: 2%;',
-	'position: absolute; bottom: 0%; left: 2%;',
-	'position: absolute; bottom: 0%; left: 50%; transform: translate(-50%, 0);',
-	'position: absolute; bottom: 0%; right: 2%;',
+	'position: absolute; bottom: 1%; left: 2%;',
+	'position: absolute; bottom: 1%; left: 50%; transform: translate(-50%, 0);',
+	'position: absolute; bottom: 1%; right: 2%;',
 ];
 
 var number_els;

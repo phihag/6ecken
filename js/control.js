@@ -3,17 +3,22 @@ var control = (function() {
 
 var timeout;
 
+var suspended;
 var state;
 var level;
 var remaining_pause;
 var remaining_corners;
 var just_paused;
+var corner;
 
 function start(s) {
+	utils.qs('#button_pause').removeAttribute('disabled');
+
 	state = s;
 	if (timeout) {
 		clearTimeout(timeout);
 	}
+	suspended = false;
 	level = 0;
 	remaining_pause = 4;
 	remaining_corners = 0;
@@ -40,8 +45,7 @@ function pick_corner() {
 
 function calcTimeout(level, corner) {
 	var res = state.base_speed;
-	var LEVEL_COUNT = 15;
-	res *= (LEVEL_COUNT - level) / LEVEL_COUNT;
+	res *= Math.pow(state.test_base, level);
 
 	switch (corner) {
 	case 0:
@@ -58,6 +62,14 @@ function calcTimeout(level, corner) {
 	return res * 1000;
 }
 
+function schedule_step() {
+	if (remaining_pause > 0) {
+		timeout = setTimeout(step, 1000);
+	} else {
+		timeout = setTimeout(step, calcTimeout(level, corner));
+	}
+}
+
 function step() {
 	if (just_paused) {
 		numbers.unhighlight();
@@ -69,6 +81,10 @@ function step() {
 		remaining_pause -= 1;
 		// Update pause
 		utils.text_qs('.pause_seconds', remaining_pause);
+		if ((remaining_pause > 0) && (remaining_pause <= 3)) {
+			audio.play('beep_' + remaining_pause);
+		}
+
 		if (remaining_pause <= 0) {
 			remaining_corners = state.corner_count;
 		}
@@ -76,13 +92,13 @@ function step() {
 	utils.visible_qs('.pause', remaining_pause > 0);
 
 	if (remaining_pause > 0) {
-		timeout = setTimeout(step, 1000);
+		schedule_step();
 		return; // Still in pause mode
 	}
 
 	// pick next active corner
 	update_level();
-	var corner = pick_corner();
+	corner = pick_corner();
 
 	// Mark next active corner
 	numbers.highlight(corner);
@@ -96,10 +112,25 @@ function step() {
 		remaining_pause = state.pause + 1;
 		just_paused = true;
 	}
-	timeout = setTimeout(step, calcTimeout(level, corner));
+	schedule_step();
+}
+
+function toggle_suspended() {
+	if (suspended) {
+		utils.text_qs('#button_pause', 'Pause');
+		schedule_step();
+	} else {
+		if (timeout) {
+			clearTimeout(timeout);
+			timeout = null;
+		}
+		utils.text_qs('#button_pause', 'Weiter');
+	}
+	suspended = !suspended;
 }
 
 return {
+	toggle_suspended: toggle_suspended,
 	start: start,
 };
 

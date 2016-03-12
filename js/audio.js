@@ -8,6 +8,9 @@ function preload() {
 		audios[i] = new Audio('sounds/de_' + i + '.mp3');
 	}
 	audios.pause = new Audio('sounds/de_pause.mp3');
+	audios.beep_1 = new Audio('sounds/beep_1.mp3');
+	audios.beep_2 = new Audio('sounds/beep_2.mp3');
+	audios.beep_3 = new Audio('sounds/beep_3.mp3');
 }
 
 function play(key) {
