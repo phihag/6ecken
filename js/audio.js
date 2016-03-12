@@ -18,7 +18,7 @@ function play(key) {
 	if (a.paused) {
 		a.play();
 	} else {
-		a.currentTime = 0
+		a.currentTime = 0;
 	}
 }
 
