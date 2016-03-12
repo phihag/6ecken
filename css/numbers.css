@@ -2,3 +2,8 @@
 	font-size: 12vmin;
 	line-height: 1;
 }
+
+.number_highlight {
+	color: white;
+	background: red;
+}

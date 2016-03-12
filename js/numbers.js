@@ -20,6 +20,7 @@ function create_numbers(container, s) {
 	for (var i = 0;i < s.numbers.length;i++) {
 		var num = s.numbers[i];
 		if (typeof num !== 'number') {
+			number_els.push(null);
 			continue;
 		}
 
@@ -36,8 +37,17 @@ function ui_init(container, s) {
 	create_numbers(numbers_container, s);
 }
 
+function highlight(idx) {
+	utils.qsEach('.number_highlight', function(el) {
+		utils.removeClass(el, 'number_highlight');
+	});
+	var node = number_els[idx];
+	utils.addClass(node, 'number_highlight');
+}
+
 return {
 	ui_init: ui_init,
+	highlight: highlight,
 };
 
 })();

@@ -4,8 +4,8 @@
 var version = 'dev';
 var state = {
 	base_speed: 3, // seconds per corner
-	front_multiplier: 1.5,
-	back_multiplier: 1.7,
+	front_multiplier: 1.4,
+	back_multiplier: 1.6,
 	corner_count: 12,
 	pause: 10,
 	mode: 'random',

@@ -59,7 +59,12 @@ function escapeRegExp(str) {
 	return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&');
 }
 
+function randomInt(n) {
+	return Math.floor(Math.random() * n);
+}
+
 function addClass(node, className) {
+	// TODO do not add a class twice
 	node.className += ' ' + className;
 }
 
@@ -70,7 +75,6 @@ function removeClass(node, className) {
 }
 
 function visible(node, val) {
-	console.log('visible', node, val);
 	if (val) {
 		removeClass(node, 'invisible');
 	} else {
@@ -89,6 +93,13 @@ function visible_qs(selector, val) {
 	visible(qs(selector), val);
 }
 
+function qsEach(selector, func) {
+	var nodes = document.querySelectorAll(selector);
+	for (var i = 0;i < nodes.length;i++) {
+		func(nodes[i], i);
+	}
+}
+
 return {
 	create_el: create_el,
 	obj_update: obj_update,
@@ -97,6 +108,10 @@ return {
 	qs: qs,
 	text_qs: text_qs,
 	visible_qs: visible_qs,
+	randomInt: randomInt,
+	addClass: addClass,
+	removeClass: removeClass,
+	qsEach: qsEach,
 };
 })();
 
