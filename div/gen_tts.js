@@ -3,7 +3,6 @@
 'use strict';
 
 var async = require('async');
-var fs = require('fs');
 var path = require('path');
 var child_process = require('child_process');
 
@@ -35,11 +34,7 @@ function gen(task, cb) {
 		child_process.execFile('sox', [svox_fn, wav_fn, 'silence', '1', '0.1', '0.5%', '1', '0.05', '0.5%'], exec_cb(cb));
 	}, function(cb) {
 		child_process.execFile('lame', [wav_fn, mp3_fn], exec_cb(cb));
-	}, /*function(cb) {
-		fs.unlink(svox_fn, cb);
-	}, function(cb) {
-		fs.unlink(wav_fn, cb);
-	}*/], cb);
+	}], cb);
 }
 
 function main() {

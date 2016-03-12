@@ -7,7 +7,6 @@ var state;
 var level;
 var remaining_pause;
 var remaining_corners;
-var corner;
 var just_paused;
 
 function start(s) {
@@ -108,6 +107,8 @@ return {
 
 /*@DEV*/
 if ((typeof module !== 'undefined') && (typeof require !== 'undefined')) {
+	var audio = require('./audio');
+	var numbers = require('./numbers');
 	var utils = require('./utils');
 
 	module.exports = control;

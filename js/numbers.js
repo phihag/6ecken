@@ -59,6 +59,7 @@ return {
 
 /*@DEV*/
 if ((typeof module !== 'undefined') && (typeof require !== 'undefined')) {
+	var utils = require('./utils');
 
 	module.exports = numbers;
 }

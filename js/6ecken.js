@@ -34,7 +34,10 @@ document.addEventListener('DOMContentLoaded', ui_init);
 
 /*@DEV*/
 if ((typeof module !== 'undefined') && (typeof require !== 'undefined')) {
-	var utils = require('./utils');
+	var audio = require('./audio');
+	var control = require('./control');
 	var numbers = require('./utils');
+	var settings = require('./settings');
+	var utils = require('./utils');
 }
 /*/@DEV*/
