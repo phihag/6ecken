@@ -4,7 +4,7 @@ var control = (function() {
 var timeout;
 
 var state;
-var round;
+var level;
 var remaining_pause;
 var remaining_corners;
 var corner;
@@ -15,11 +15,17 @@ function start(s) {
 	if (timeout) {
 		clearTimeout(timeout);
 	}
-	round = 0;
+	level = 0;
 	remaining_pause = 4;
 	remaining_corners = 0;
 	just_paused = false;
+	update_level();
 	step(s);
+}
+
+function update_level() {
+	var step_num = (remaining_pause > 0) ? 0 : (state.corner_count - remaining_corners);
+	utils.text_qs('.level_num', (level + 1) + '.' + step_num);
 }
 
 function pick_corner() {
@@ -33,8 +39,11 @@ function pick_corner() {
 	return corners[idx];
 }
 
-function calcTimeout(corner) {
+function calcTimeout(level, corner) {
 	var res = state.base_speed;
+	var LEVEL_COUNT = 15;
+	res *= (LEVEL_COUNT - level) / LEVEL_COUNT;
+
 	switch (corner) {
 	case 0:
 	case 1:
@@ -52,7 +61,9 @@ function calcTimeout(corner) {
 
 function step() {
 	if (just_paused) {
+		numbers.unhighlight();
 		just_paused = false;
+		level++;
 		audio.play('pause');
 	}
 	if (remaining_pause > 0) {
@@ -71,6 +82,7 @@ function step() {
 	}
 
 	// pick next active corner
+	update_level();
 	var corner = pick_corner();
 
 	// Mark next active corner
@@ -85,8 +97,7 @@ function step() {
 		remaining_pause = state.pause + 1;
 		just_paused = true;
 	}
-	console.log(remaining_corners, 'corners remaining');
-	timeout = setTimeout(step, calcTimeout(corner));
+	timeout = setTimeout(step, calcTimeout(level, corner));
 }
 
 return {

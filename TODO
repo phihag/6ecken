@@ -1,4 +1,3 @@
-add sound
 increase speed (show level)
 
 
@@ -14,6 +13,7 @@ test mode: Evaluate speed
 
 -> run @Niesner
 
+announce Level
 fix TODOs in utils
 pause background
 more precise timing (calc how out of touch timing is)

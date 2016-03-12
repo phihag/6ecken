@@ -37,10 +37,14 @@ function ui_init(container, s) {
 	create_numbers(numbers_container, s);
 }
 
-function highlight(idx) {
+function unhighlight() {
 	utils.qsEach('.number_highlight', function(el) {
 		utils.removeClass(el, 'number_highlight');
 	});
+}
+
+function highlight(idx) {
+	unhighlight();
 	var node = number_els[idx];
 	utils.addClass(node, 'number_highlight');
 }
@@ -48,6 +52,7 @@ function highlight(idx) {
 return {
 	ui_init: ui_init,
 	highlight: highlight,
+	unhighlight: unhighlight,
 };
 
 })();
