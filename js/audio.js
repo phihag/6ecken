@@ -14,7 +14,12 @@ function preload() {
 }
 
 function play(key) {
-	audios[key].play();
+	var a = audios[key];
+	if (a.paused) {
+		a.play();
+	} else {
+		a.currentTime = 0
+	}
 }
 
 return {

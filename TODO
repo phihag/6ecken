@@ -10,6 +10,8 @@ test mode: Evaluate speed
 
 -> run @Niesner
 
+test twice same number at high speed (need to reset?)
+fix timing at end of round
 rename pause to rest
 rerename button_pause to button_suspend
 check&plan level
