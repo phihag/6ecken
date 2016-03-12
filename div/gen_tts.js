@@ -12,7 +12,7 @@ var SOUND_DIR = (__dirname, '..', 'sounds');
 
 
 function exec_cb(cb) {
-	return function(err, stderr, stdout) {
+	return function(err, stderr) {
 			if (err) {
 				return cb(err);
 			}
@@ -45,7 +45,7 @@ function main() {
 			text: '' + num,
 			voice: 'de-DE',
 			out_base: path.join(SOUND_DIR, 'de_' + num),
-		})
+		});
 	}
 	tasks.push({
 		text: 'Pause',
