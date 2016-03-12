@@ -11,14 +11,6 @@ var MAXNUM = 10;
 var SOUND_DIR = (__dirname, '..', 'sounds');
 
 
-function range(start, n) {
-	var res = [];
-	for (var i = start;i < n;i++) {
-		res.push(i);
-	}
-	return res;
-}
-
 function exec_cb(cb) {
 	return function(err, stderr, stdout) {
 			if (err) {
@@ -31,13 +23,14 @@ function exec_cb(cb) {
 	};
 }
 
-function gen(num, voice, out_base, cb) {
+function gen(task, cb) {
+	var out_base = task.out_base;
 	var svox_fn = out_base + '.svox.wav';
 	var wav_fn = out_base + '.wav';
 	var mp3_fn = out_base + '.mp3';
 
 	async.waterfall([function(cb) {
-		child_process.execFile('pico2wave', ['-l', voice, '-w', svox_fn, num], exec_cb(cb));
+		child_process.execFile('pico2wave', ['-l', task.voice, '-w', svox_fn, task.text], exec_cb(cb));
 	}, function(cb) {
 		child_process.execFile('sox', [svox_fn, wav_fn, 'silence', '1', '0.1', '0.5%', '1', '0.05', '0.5%'], exec_cb(cb));
 	}, function(cb) {
@@ -46,10 +39,21 @@ function gen(num, voice, out_base, cb) {
 }
 
 function main() {
-	var nums = range(1, MAXNUM + 1);
-	async.each(nums, function(num, cb) {
-		gen(num, 'de-DE', path.join(SOUND_DIR, 'de_' + num), cb);
-	}, function(err) {
+	var tasks = [];
+	for (var num = 1;num <= MAXNUM;num++) {
+		tasks.push({
+			text: '' + num,
+			voice: 'de-DE',
+			out_base: path.join(SOUND_DIR, 'de_' + num),
+		})
+	}
+	tasks.push({
+		text: 'Pause',
+		voice: 'de-DE',
+		out_base: path.join(SOUND_DIR, 'de_pause'),
+	});
+
+	async.each(tasks, gen, function(err) {
 		if (err) {
 			throw err;
 		}

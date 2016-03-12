@@ -12,6 +12,7 @@ var state = {
 	timing: 'test',
 };
 
+audio.preload();
 function ui_init() {
 	settings.load(state);
 

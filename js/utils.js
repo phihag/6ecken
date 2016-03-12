@@ -70,8 +70,9 @@ function addClass(node, className) {
 
 function removeClass(node, className) {
 	// TODO handle long classes, and proper regexp
-	var rex = new RegExp('(?:^|\s+)' + escapeRegExp(className), 'g');
-	node.className = node.className.replace(' ' + className, '');
+	var rex = new RegExp(' ' + className, 'g');
+	// TODO proper
+	node.className = node.className.replace(rex, '');
 }
 
 function visible(node, val) {

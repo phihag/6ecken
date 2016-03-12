@@ -8,6 +8,7 @@ var round;
 var remaining_pause;
 var remaining_corners;
 var corner;
+var just_paused;
 
 function start(s) {
 	state = s;
@@ -17,6 +18,7 @@ function start(s) {
 	round = 0;
 	remaining_pause = 4;
 	remaining_corners = 0;
+	just_paused = false;
 	step(s);
 }
 
@@ -49,6 +51,10 @@ function calcTimeout(corner) {
 }
 
 function step() {
+	if (just_paused) {
+		just_paused = false;
+		audio.play('pause');
+	}
 	if (remaining_pause > 0) {
 		remaining_pause -= 1;
 		// Update pause
@@ -71,13 +77,15 @@ function step() {
 	numbers.highlight(corner);
 
 	// say number
-	// TODO implement
+	audio.play(state.numbers[corner]);
 
 	// set timeout for next step
 	remaining_corners--;
 	if (remaining_corners <= 0) {
 		remaining_pause = state.pause + 1;
+		just_paused = true;
 	}
+	console.log(remaining_corners, 'corners remaining');
 	timeout = setTimeout(step, calcTimeout(corner));
 }
 
