@@ -1,15 +1,24 @@
+write bericht length
+fix android bug
+
+blue dot for current player position
+make position mulitipliers an editable array
+add position for smash defense
+redesign timing
+implement onerror from bup
 mark 6 corners in one order
 beep sound to indicate change
 random order
+random interval with beeps (to train explosive start)
 pause after 12 / 18 corners
 TTS 1,2,3,4,5,6,7,8
 	-> speed up?
 	-> cut silence
 	-> script with sox? script to download?
 test mode: Evaluate speed
+add soruce code to bericht.html
 
--> run @Niesner
-
+rendom wait times
 test twice same number at high speed (need to reset?)
 fix timing at end of round
 rename pause to rest
@@ -26,6 +35,7 @@ set up as appcache
 set up and test as Android webapp
 set up and test as iOS webapp
 favicon
+wrap it in an app
 
 save and restore previous settings in localStorage
 varying speed settings
@@ -46,8 +56,10 @@ move utils to uiu
 switch to ms for storage
 add a README
 i18n (copy over from bup)
+bericht: add source code
 
 record video?
 integrate pulse measurement?
 integrate racket trackers?
 remote control?
+adjust voice/beep volume?

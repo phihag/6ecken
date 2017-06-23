@@ -19,6 +19,7 @@ function ui_init() {
 	numbers.ui_init(utils.qs('.court'), state);
 
 	utils.on_click_qs('#button_start', function() {
+		audio.workaround_user_interaction();
 		control.start(state);
 	});
 	utils.on_click_qs('#button_pause', function() {
