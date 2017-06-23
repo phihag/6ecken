@@ -1,10 +1,13 @@
+sudo: false
+
 language: node_js
 node_js:
-  - "4.1"
-  - 5
-install:
-  - make deps
+  - 6
+  - node
+
 before_script:
+  - make deps
+script:
   - make lint
 notifications:
   email:

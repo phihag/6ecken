@@ -14,7 +14,10 @@
 	},
 	"devDependencies": {
 		"mocha": "*",
-		"parse-appcache-manifest": "*"
+		"parse-appcache-manifest": "*",
+	    "eslint": "*",
+        "stylelint": "*",
+	    "stylelint-config-standard": "*"
 	},
 	"private": true
 }

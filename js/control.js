@@ -12,7 +12,7 @@ var just_paused;
 var corner;
 
 function start(s) {
-	utils.qs('#button_pause').removeAttribute('disabled');
+	uiu.qs('#button_pause').removeAttribute('disabled');
 
 	state = s;
 	if (timeout) {
@@ -29,7 +29,7 @@ function start(s) {
 
 function update_level() {
 	var step_num = (remaining_pause > 0) ? 0 : (state.corner_count - remaining_corners);
-	utils.text_qs('.level_num', (level + 1) + '.' + step_num);
+	uiu.text_qs('.level_num', (level + 1) + '.' + step_num);
 }
 
 function pick_corner() {
@@ -80,7 +80,7 @@ function step() {
 	if (remaining_pause > 0) {
 		remaining_pause -= 1;
 		// Update pause
-		utils.text_qs('.pause_seconds', remaining_pause);
+		uiu.text_qs('.pause_seconds', remaining_pause);
 		if ((remaining_pause > 0) && (remaining_pause <= 3)) {
 			audio.play('beep_' + remaining_pause);
 		}
@@ -89,7 +89,7 @@ function step() {
 			remaining_corners = state.corner_count;
 		}
 	}
-	utils.visible_qs('.pause', remaining_pause > 0);
+	uiu.visible_qs('.pause', remaining_pause > 0);
 
 	if (remaining_pause > 0) {
 		schedule_step();
@@ -117,14 +117,14 @@ function step() {
 
 function toggle_suspended() {
 	if (suspended) {
-		utils.text_qs('#button_pause', 'Pause');
+		uiu.text_qs('#button_pause', 'Pause');
 		schedule_step();
 	} else {
 		if (timeout) {
 			clearTimeout(timeout);
 			timeout = null;
 		}
-		utils.text_qs('#button_pause', 'Weiter');
+		uiu.text_qs('#button_pause', 'Weiter');
 	}
 	suspended = !suspended;
 }
@@ -140,6 +140,7 @@ return {
 if ((typeof module !== 'undefined') && (typeof require !== 'undefined')) {
 	var audio = require('./audio');
 	var numbers = require('./numbers');
+	var uiu = require('./uiu');
 	var utils = require('./utils');
 
 	module.exports = control;

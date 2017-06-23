@@ -24,7 +24,7 @@ function create_numbers(container, s) {
 			continue;
 		}
 
-		var nel = utils.create_el(container, 'div', {
+		var nel = uiu.el(container, 'div', {
 			'class': 'number',
 			'style': NUMBER_POSITIONS[i],
 		}, num);
@@ -33,20 +33,20 @@ function create_numbers(container, s) {
 }
 
 function ui_init(container, s) {
-	var numbers_container = utils.create_el(container, 'div', {});
+	var numbers_container = uiu.el(container, 'div', {});
 	create_numbers(numbers_container, s);
 }
 
 function unhighlight() {
-	utils.qsEach('.number_highlight', function(el) {
-		utils.removeClass(el, 'number_highlight');
+	uiu.qsEach('.number_highlight', function(el) {
+		uiu.removeClass(el, 'number_highlight');
 	});
 }
 
 function highlight(idx) {
 	unhighlight();
 	var node = number_els[idx];
-	utils.addClass(node, 'number_highlight');
+	uiu.addClass(node, 'number_highlight');
 }
 
 return {
@@ -59,7 +59,7 @@ return {
 
 /*@DEV*/
 if ((typeof module !== 'undefined') && (typeof require !== 'undefined')) {
-	var utils = require('./utils');
+	var uiu = require('./uiu');
 
 	module.exports = numbers;
 }

@@ -44,13 +44,13 @@ upload-run:
 test: ## Run tests
 	@npm test
 
-lint: jshint eslint ## Verify source code quality
-
-jshint:
-	@jshint js/ div/*.js
+lint: eslint stylelint ## Verify source code quality
 
 eslint:
-	@eslint js/ div/*.js
+	@node_modules/.bin/eslint js/ div/*.js
+
+stylelint:
+	@node_modules/.bin/stylelint css/*.css
 
 coverage:
 	istanbul cover _mocha -- -R spec
@@ -64,4 +64,4 @@ clean: cleandist ## remove temporary files
 	rm -rf -- libs
 	rm -rf -- node_modules
 
-.PHONY: default help deps test clean upload dist cleandist coverage coverage-display cd lint jshint eslint appcache-manifest manifest upload-run
+.PHONY: default help deps test clean upload dist cleandist coverage coverage-display cd lint stylelint eslint appcache-manifest manifest upload-run
